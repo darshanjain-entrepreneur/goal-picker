@@ -123,11 +123,12 @@ const HabitsEntry = ({ userName, onComplete, onReset }) => {
                         <motion.div
                             key={habit.id}
                             className="habit-card"
-                            initial={{ opacity: 0, x: -20, scale: 0.9 }}
-                            animate={{ opacity: 1, x: 0, scale: 1 }}
-                            exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                            transition={{ type: 'spring', duration: 0.3 }}
-                            layout
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, x: 50 }}
+                            transition={{ duration: 0.15, ease: 'easeOut' }}
+                            layout="position"
+                            layoutId={habit.id}
                         >
                             <span className="habit-number">{index + 1}</span>
                             <span className="habit-text">{habit.text}</span>
