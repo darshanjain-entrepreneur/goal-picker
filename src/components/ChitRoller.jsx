@@ -32,7 +32,7 @@ const ChitRoller = ({ onAllComplete, onEditGoals }) => {
         const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#ffd700', '#38ef7d', '#00c6ff', '#ff6b6b'];
         const newConfetti = [];
 
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < 40; i++) {
             newConfetti.push({
                 id: i,
                 x: Math.random() * 100,
@@ -50,7 +50,7 @@ const ChitRoller = ({ onAllComplete, onEditGoals }) => {
 
     const triggerSparks = () => {
         const newSparks = [];
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 15; i++) {
             newSparks.push({
                 id: i,
                 angle: (360 / 30) * i,
@@ -265,7 +265,7 @@ const ChitRoller = ({ onAllComplete, onEditGoals }) => {
                             animate={{
                                 textShadow: [
                                     '0 0 20px rgba(255, 215, 0, 0.5)',
-                                    '0 0 40px rgba(255, 215, 0, 0.8)',
+                                    '0 0 30px rgba(255, 215, 0, 0.7)',
                                     '0 0 20px rgba(255, 215, 0, 0.5)',
                                 ]
                             }}
@@ -407,11 +407,12 @@ const ChitRoller = ({ onAllComplete, onEditGoals }) => {
                         >
                             <motion.div
                                 className="revealed-card"
+                                style={{ willChange: 'transform, opacity' }} // Optimization
                                 animate={{
                                     boxShadow: [
-                                        '0 0 30px rgba(102, 126, 234, 0.4), 0 0 60px rgba(102, 126, 234, 0.2)',
-                                        '0 0 50px rgba(255, 215, 0, 0.5), 0 0 100px rgba(102, 126, 234, 0.3)',
-                                        '0 0 30px rgba(240, 147, 251, 0.4), 0 0 60px rgba(240, 147, 251, 0.2)',
+                                        '0 0 30px rgba(102, 126, 234, 0.4)',
+                                        '0 0 50px rgba(255, 215, 0, 0.5)',
+                                        '0 0 30px rgba(102, 126, 234, 0.4)',
                                     ],
                                 }}
                                 transition={{ duration: 2, repeat: Infinity }}
