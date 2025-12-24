@@ -328,15 +328,17 @@ const ChitRoller = ({ onAllComplete, onEditGoals }) => {
                         <motion.div
                             key="chits-rolling"
                             className="chit-roller"
-                            style={{ transformStyle: 'preserve-3d' }}
+                            style={{
+                                transformStyle: 'preserve-3d',
+                                willChange: 'transform' // Optimization
+                            }}
                             animate={{
-                                rotateY: [0, 2880],
-                                rotateX: [0, 360, 720, 1080, 720, 360, 0],
-                                rotateZ: [0, 15, -15, 10, -10, 0],
-                                scale: [1, 1.15, 0.9, 1.1, 0.95, 1],
+                                rotateY: [0, 1440], // Reduced rotation count for performance
+                                rotateX: [0, 360, 720, 360, 0],
+                                rotateZ: [0, 10, -10, 0],
                             }}
                             transition={{
-                                duration: 4,
+                                duration: 3.5, // Slightly faster
                                 ease: [0.2, 0.8, 0.2, 1],
                             }}
                         >
@@ -344,8 +346,8 @@ const ChitRoller = ({ onAllComplete, onEditGoals }) => {
                             <motion.div
                                 className="roller-glow intense"
                                 animate={{
-                                    opacity: [0.5, 1, 0.5],
-                                    scale: [1, 1.5, 1],
+                                    opacity: [0.5, 0.8, 0.5],
+                                    scale: [1, 1.2, 1],
                                 }}
                                 transition={{ duration: 0.3, repeat: 13 }}
                             />
@@ -359,12 +361,14 @@ const ChitRoller = ({ onAllComplete, onEditGoals }) => {
                                         className="chit rolling"
                                         style={{
                                             transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
+                                            willChange: 'transform, box-shadow' // Optimization
                                         }}
                                         animate={{
+                                            // Simplified shadow animation
                                             boxShadow: [
-                                                '0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(102,126,234,0.3)',
-                                                '0 20px 60px rgba(102,126,234,0.6), 0 0 40px rgba(255,215,0,0.5)',
-                                                '0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(240,147,251,0.3)',
+                                                '0 5px 15px rgba(0,0,0,0.3)',
+                                                '0 10px 30px rgba(102,126,234,0.5)',
+                                                '0 5px 15px rgba(0,0,0,0.3)',
                                             ],
                                         }}
                                         transition={{
@@ -375,8 +379,7 @@ const ChitRoller = ({ onAllComplete, onEditGoals }) => {
                                         <motion.span
                                             className="chit-mystery"
                                             animate={{
-                                                scale: [1, 1.3, 1],
-                                                opacity: [1, 0.7, 1],
+                                                opacity: [1, 0.6, 1], // Removed scale animation
                                             }}
                                             transition={{ duration: 0.2, repeat: 20 }}
                                         >

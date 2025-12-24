@@ -193,6 +193,7 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(40px);
+  will-change: transform;
 }
 
 /* Floating Particles */
@@ -625,6 +626,7 @@ h3 {
   max-width: 300px;
   height: 100%;
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
 /* Individual Chit */
@@ -989,6 +991,7 @@ h3 {
   font-weight: 800;
   background: var(--accent-primary);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -1085,12 +1088,14 @@ h3 {
 .text-gradient {
   background: var(--accent-primary);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gold {
   background: var(--accent-gold);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

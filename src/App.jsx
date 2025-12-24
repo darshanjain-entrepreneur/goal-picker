@@ -10,7 +10,7 @@ import './App.css';
 // Generate floating particles with variety
 const generateParticles = () => {
   const colors = ['#667eea', '#764ba2', '#f093fb', '#ffd700', '#38ef7d', '#00c6ff'];
-  return Array.from({ length: 25 }, (_, i) => ({
+  return Array.from({ length: 15 }, (_, i) => ({
     id: i,
     left: `${Math.random() * 100}%`,
     delay: Math.random() * 15,
@@ -145,6 +145,7 @@ function App() {
               height: p.size,
               background: p.color,
               boxShadow: `0 0 ${p.size * 2}px ${p.color}`,
+              willChange: 'transform, opacity' // Optimization
             }}
             animate={{
               y: ['100vh', '-10vh'],
